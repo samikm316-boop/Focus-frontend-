@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
+import HomeTab from "../tabs/HomeTab";
 import AiTab from "../tabs/AiTab";
 import StudyTab from "../tabs/StudyTab";
 import WorkoutTab from "../tabs/WorkoutTab";
@@ -7,10 +8,12 @@ import GroupsTab from "../tabs/GroupsTab";
 import SettingsTab from "../tabs/SettingsTab";
 
 export default function MainLayout() {
-  const [activeTab, setActiveTab] = useState("ai");
+  const [activeTab, setActiveTab] = useState("home");
 
   const renderTab = () => {
     switch (activeTab) {
+      case "home":
+        return <HomeTab />;
       case "ai":
         return <AiTab />;
       case "study":
@@ -22,7 +25,7 @@ export default function MainLayout() {
       case "settings":
         return <SettingsTab />;
       default:
-        return <AiTab />;
+        return <HomeTab />;
     }
   };
 
